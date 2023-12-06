@@ -21,6 +21,8 @@ package Bio::KBase::AppService::ReadSpec;
     use strict;
     use warnings;
 
+    use File::Basename;
+
 =head1 Object for Generating Read Input Specifications in P3 CLI Scripts
 
 This object handles input specifications for reads.  The user can specify multiple read sources, including paired-end libraries,
