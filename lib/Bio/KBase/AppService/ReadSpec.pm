@@ -341,8 +341,13 @@ sub _singleLib {
         my $uploader = $self->{uploader};
         my $wsFile = $uploader->fix_file_name($fileName, 'reads');
         # Create the library specification.  Note that the platform is the only tweak allowed.
+        my $filename = basename($wsFile);
+        # Use a regular expression to remove all extensions
+        $filename =~ s/\..*$//;
+
         my $lib = {
-            read => $wsFile
+            read => $wsFile,
+            sample_id => $filename
         };
         # Add the optional parameters if we are not simple.
         if (! $self->{simple}) {
